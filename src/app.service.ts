@@ -8,11 +8,11 @@ export class AppService {
     this.apiKey = this.configService.get<string>('apiKey');
   }
 
-  async getHello(): Promise<string> {
+  async getBasicResponse(): Promise<string> {
     return 'Hello World!!!';
   }
 
-  async getMoreText(id: string): Promise<any> {
+  async getValue(id: string): Promise<any> {
     return `Id Value: ${id}`
   }
 

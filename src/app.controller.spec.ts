@@ -35,39 +35,39 @@ describe('AppController', () => {
     appService = moduleRef.get<AppService>(AppService);
   });
 
-  describe('getHello', () => {
+  describe('getResponse', () => {
     it('should return "Hello World!"', async () => {
       const result = 'Hello World!!!';
 
-      expect(await appController.getHello()).toBe(result);
+      expect(await appController.getResponse()).toBe(result);
     });
   });
 
-  describe('findOne', () => {
+  describe('paramExample', () => {
     it('should return the text for the given id', async () => {
       const id = '123';
       const result = `Id Value: ${id}`;
 
-      expect(await appController.findOne(id)).toBe(result);
+      expect(await appController.paramExample(id)).toBe(result);
     });
   });
 
-  describe('testWithQuery', () => {
+  describe('queryExampleMocked', () => {
     it('should return the text for the given query id', async () => {
       const id = '456';
       const result = `Text for query id ${id}`;
-      jest.spyOn(appService, 'getMoreText').mockImplementation(async () => result);
+      jest.spyOn(appService, 'getValue').mockImplementation(async () => result);
 
-      expect(await appController.testWithQuery(id)).toBe(result);
+      expect(await appController.queryExample(id)).toBe(result);
     });
   });
 
-  describe('testWithQuery-2', () => {
+  describe('queryExample', () => {
     it('should return the text for the given query id', async () => {
       const id = '456';
       const result = `Id Value: ${id}`;
 
-      expect(await appController.testWithQuery(id)).toBe(result);
+      expect(await appController.queryExample(id)).toBe(result);
     });
   });
 });
