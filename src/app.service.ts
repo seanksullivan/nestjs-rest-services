@@ -8,15 +8,15 @@ export class AppService {
     this.apiKey = this.configService.get<string>('apiKey');
   }
 
-  getHello(): string {
+  async getHello(): Promise<string> {
     return 'Hello World!!!';
   }
 
-  getMoreText(id: string): any {
+  async getMoreText(id: string): Promise<any> {
     return `Id Value: ${id}`
   }
 
-  isKeyValid(key: any): boolean {
+  async isKeyValid(key: any): Promise<boolean> {
     if (key == this.apiKey) {
       return true;
     }

@@ -11,17 +11,17 @@ export class AppController {
   }
 
   @Get('default')
-  getHello(): string {
-    return this.appService.getHello();
+  async getHello(): Promise<string> {
+    return await this.appService.getHello();
   }
 
   @Get('test/:id')
-  findOne(@Param('id') id: string) {
-    return this.appService.getMoreText(id);
+  async findOne(@Param('id') id: string) {
+    return await this.appService.getMoreText(id);
   }
 
   @Get('test')
-  testWithQuery(@Query('id') id: string) {
-      return this.appService.getMoreText(id);
+  async testWithQuery(@Query('id') id: string) {
+      return await this.appService.getMoreText(id);
     }
 }
