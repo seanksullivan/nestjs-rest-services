@@ -4,8 +4,7 @@ import { AppService } from "./app.service";
 
 @Injectable()
 export class ApiKeyGuard implements CanActivate {
-  constructor(private readonly apiKeyService: AppService) {} // made up service for the point of the exmaple
-
+  constructor(private readonly apiKeyService: AppService) {}
   async canActivate(context: ExecutionContext): Promise<boolean> {
     const req = context.switchToHttp().getRequest();
     const key = req.headers['x-api-key'] ?? req.query.api_key; // checks the header, moves to query if null

@@ -33,3 +33,9 @@ $ npm run test:e2e
 # test coverage
 $ npm run test:cov
 ```
+
+## Build and run Docker
+```bash
+$ docker build -t nestjs-rest-services .
+$ docker run -p80:3001 nestjs-rest-services
+```
